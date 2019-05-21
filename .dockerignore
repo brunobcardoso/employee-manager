@@ -1,0 +1,7 @@
+# comment
+.env
+.venv
+env
+venv
+*.md
+!README.md
