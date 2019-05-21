@@ -24,3 +24,6 @@ run: migrate static
 
 stop:
 		@docker-compose stop
+
+test:
+		@docker-compose run --rm web sh -c "pipenv install --dev --skip-lock --system && pytest -v -rf"
