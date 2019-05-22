@@ -49,4 +49,3 @@ workflows:
               only:
                 - master
                 - develop
-                - feature/project-setup
