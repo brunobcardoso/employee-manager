@@ -119,6 +119,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+TEST_RUNNER = 'xmlrunner.extra.djangotestrunner.XMLTestRunner'
+TEST_OUTPUT_VERBOSE = 2
+TEST_OUTPUT_DESCRIPTIONS = 2
+TEST_OUTPUT_DIR = './test_results'
+
 # Logging
 LOGGING = {
     'version': 1,
@@ -140,7 +145,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'file',
-            'filename': os.getenv('LOG_FILE_PATH', './debug.log'),
+            'filename': os.getenv('LOG_FILE_PATH', '/tmp/debug.log'),
         }
     },
     'loggers': {
