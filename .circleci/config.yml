@@ -6,21 +6,47 @@ jobs:
     steps:
       - checkout
       - run:
-          name: build and up containers
+          name: Build and up containers
           command: docker-compose up -d
       - run:
-          name: install dependencies
+          name: Install dependencies
           command: docker-compose exec web sh -c "pipenv install --dev --skip-lock --system"
       - run:
-          name: run tests
+          name: Run tests
           command: docker-compose exec web sh -c "pytest -v -rf --junitxml=test-results/junit.xml"
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-reports
           destination: test-reports
+  deploy:
+    docker:
+      - image: buildpack-deps:xenial-scm
+    steps:
+      - checkout
+      - run:
+          name: Log in to Heroku
+          command: bash .circleci/login-heroku.sh
+      - run:
+          name: Deploy App
+          command: bash .circleci/deploy-heroku.sh
+      - run:
+          name: Run migrations
+          command: |
+            source .circleci/setup-env.sh
+            heroku run python manage.py migrate --remote $HEROKU_REMOTE
+
 workflows:
   version: 2
-  build_and_test:
+  build_deploy:
     jobs:
       - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+                - feature/project-setup
