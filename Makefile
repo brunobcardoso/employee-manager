@@ -1,6 +1,5 @@
 .PHONY: build db migrate static shell superuser run stop
 
-
 build:
 		@docker-compose build
 
@@ -27,3 +26,6 @@ stop:
 
 test:
 		@docker-compose run --rm web sh -c "pipenv install --dev --skip-lock --system && pytest -v -rf"
+
+coverage:
+		@docker-compose run --rm web sh -c "pipenv install --dev --skip-lock --system && pytest core/tests/ -s -v --cov=core --cov-branch --cov-report=term-missing --cov-report=html"
