@@ -14,12 +14,12 @@ $ git clone https://github.com/brunobcardoso/employee-manager
 $ cd employee-manager
 ```
 
-With Docker:
+#### With Docker:
 ```
 $ make run
 ```
 
-Locally:
+#### Locally:
 
 `$ pip install pipenv` Skip this step if you already have it installed
 ```
@@ -29,3 +29,23 @@ $ pipenv run manage.py runserver
 ```
 
 The development server should be running at: http://localhost:8000/
+
+## Running the tests
+
+#### Tests:
+```console
+make test
+```
+
+#### Coverage:
+```console
+make coverage
+```
+
+## Employee Manager Admin Panel
+Create a superuser to manage the system:
+```console
+make superuser
+```
+
+Access Admin panel at: [http://localhost:8000/admin/](http://localhost:8000/admin/)
