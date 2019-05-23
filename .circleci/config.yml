@@ -21,10 +21,11 @@ jobs:
           path: test-reports
           destination: test-reports
       - run:
-          name: Send CodeCov status
+          name: Send Coverage status
           command: |
             cd test-results/
-            bash <(curl -s https://codecov.io/bash)
+            docker-compose exec -e COVERALLS_REPO_TOKEN="$COVERALLS_REPO_TOKEN" web sh -c "apk add git \
+            && pip install coveralls && coveralls"
   deploy:
     docker:
       - image: buildpack-deps:xenial-scm
