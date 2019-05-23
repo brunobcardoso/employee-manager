@@ -1,5 +1,8 @@
 .PHONY: build db migrate static shell superuser run stop
 
+clean:
+		@docker-compose run --rm web sh -c "find . -name '*.pyc' -delete && find . -name '*.pyo' -delete && rm -f .coverage && rm -rf htmlcov"
+
 build:
 		@docker-compose build
 
@@ -24,8 +27,8 @@ run: migrate static
 stop:
 		@docker-compose stop
 
-test:
+test: clean
 		@docker-compose run --rm web sh -c "pipenv install --dev --skip-lock --system && pytest -v -rf"
 
-coverage:
+coverage: clean
 		@docker-compose run --rm web sh -c "pipenv install --dev --skip-lock --system && pytest core/tests/ -s -v --cov=core --cov-branch --cov-report=term-missing --cov-report=html"
