@@ -19,6 +19,7 @@ from django.urls import path, include
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from rest_framework.documentation import include_docs_urls
 from rest_framework_jwt.views import obtain_jwt_token
 
 schema_view = get_schema_view(
@@ -36,6 +37,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include_docs_urls(title='Employee Manager API')),
     path('token-auth/', obtain_jwt_token),
     path('', include('core.urls')),
     url(r'^swagger(?P<format>\.json|\.yaml)$',
