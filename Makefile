@@ -28,7 +28,7 @@ stop:
 		@docker-compose stop
 
 test: clean
-		@docker-compose run --rm web sh -c "pipenv install --dev --skip-lock --system && pytest -v -rf"
+		@docker-compose run --rm web sh -c "pytest -v -rf"
 
 coverage: clean
-		@docker-compose run --rm web sh -c "pipenv install --dev --skip-lock --system && pytest core/tests/ -s -v --cov=core --cov-branch --cov-report=term-missing --cov-report=html"
+		@docker-compose run --rm web sh -c "pytest core/tests/ -s -v --cov=core --cov-branch --cov-report=term-missing --cov-report=html"
