@@ -12,3 +12,10 @@ def employee_payload():
         'email': 'test@example.com',
         'department': department.name
     }
+
+
+@pytest.fixture
+def department_payload():
+    return {
+        'name': 'Technology',
+    }

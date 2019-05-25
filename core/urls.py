@@ -11,4 +11,12 @@ urlpatterns = [
         'employee/<int:pk>/', views.EmployeeDetail.as_view(),
         name='employee-detail'
     ),
+    path(
+        'department/', views.DepartmentList.as_view(),
+        name='department-list'
+    ),
+    path(
+        'department/<int:pk>/', views.DepartmentDetail.as_view(),
+        name='department-detail'
+    ),
 ]
