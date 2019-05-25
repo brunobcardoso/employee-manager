@@ -20,12 +20,8 @@ $ make run
 ```
 
 #### Locally:
-
-`$ pip install pipenv` Skip this step if you already have it installed
 ```
-$ pipenv install --dev --skip-lock
-$ pipenv run python manage.py migrate
-$ pipenv run manage.py runserver
+$ make lrun
 ```
 
 The development server should be running at: http://localhost:8000/
