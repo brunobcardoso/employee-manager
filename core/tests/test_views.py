@@ -34,6 +34,7 @@ def test_update_employee(admin_client, employee_payload):
         data=employee_payload,
         content_type='application/json'
     )
+    del response.json()['id']
     assert response.status_code == status.HTTP_200_OK
     assert response.json() == employee_payload
 

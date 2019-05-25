@@ -12,7 +12,7 @@ def test_employee_serializer_contains_expected_fields():
     serializer = EmployeeSerializer(instance=employee)
     data = serializer.data
 
-    assert set(data.keys()) == {'name', 'email', 'department'}
+    assert set(data.keys()) == {'id', 'name', 'email', 'department'}
 
 
 @pytest.mark.django_db
@@ -22,6 +22,7 @@ def test_employee_field_content():
     serializer = EmployeeSerializer(instance=employee)
     data = serializer.data
 
+    assert data['id'] == employee.id
     assert data['name'] == employee.name
     assert data['email'] == employee.email
     assert data['department'] == employee.department.name
