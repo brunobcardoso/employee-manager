@@ -143,22 +143,16 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
             'formatter': 'console'
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'formatter': 'file',
-            'filename': os.getenv('LOG_FILE_PATH', '/tmp/debug.log'),
         }
     },
     'loggers': {
         '': {
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-            'handlers': ['console', 'file']
+            'level': os.getenv('LOG_LEVEL', 'INFO'),
+            'handlers': ['console']
         },
         'django.request': {
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-            'handlers': ['console', 'file']
+            'level': os.getenv('LOG_LEVEL', 'INFO'),
+            'handlers': ['console']
         }
     }
 }
