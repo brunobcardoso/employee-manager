@@ -1,5 +1,9 @@
 # Employee Manager
 
+[![CircleCI](https://circleci.com/gh/brunobcardoso/employee-manager/tree/master.svg?style=svg)](https://circleci.com/gh/brunobcardoso/employee-manager/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/brunobcardoso/employee-manager/badge.svg?branch=master)](https://coveralls.io/github/brunobcardoso/employee-manager?branch=master)
+[![CodeFactor](https://www.codefactor.io/repository/github/brunobcardoso/employee-manager/badge)](https://www.codefactor.io/repository/github/brunobcardoso/employee-manager)
+
 A web application to manage employees' information, built with Django and Django REST framework.
 
 ## Dependencies
@@ -21,7 +25,11 @@ $ make run
 
 #### Locally:
 ```
-$ make lrun
+$ pip install pipenv
+$ cp .env.example .env
+$ pipenv install --dev --skip-lock
+$ pipenv run python manage.py migrate
+$ pipenv run manage.py runserver
 ```
 
 The development server should be running at: http://localhost:8000/
@@ -31,6 +39,10 @@ The development server should be running at: http://localhost:8000/
 #### Tests:
 ```console
 make test
+```
+or
+```console
+pipenv run pytest
 ```
 
 #### Coverage:
@@ -53,3 +65,24 @@ Swagger UI: [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)
 ReDoc: [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/)
 
 
+## Deployment
+
+The deployment process is automated by CircleCI whenever `master` or `develop` changes.
+
+**Staging:** https://staging-employee-manager.herokuapp.com/
+
+**Production:** https://production-employee-manager.herokuapp.com/
+
+### Pipeline
+
+![ci_cd_pipeline](ci_cd_pipeline.png)
+
+---
+
+Example CircleCI Workflow for a non-deploy-branch
+
+![non_deploy_branch_pipeline](non_deploy_branch_pipeline.png)
+
+Example CircleCI Workflow for branch `develop`
+
+![develop_pipeline](develop_pipeline.png)
