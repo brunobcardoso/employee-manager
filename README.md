@@ -56,13 +56,13 @@ Create a superuser to manage the system:
 make superuser
 ```
 
-Access Admin panel at: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+Access Admin panel at: [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
 ## API Documentation
 
-Swagger UI: [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)
+Swagger UI: [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
 
-ReDoc: [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/)
+ReDoc: [http://localhost:8000/redoc/](http://localhost:8000/redoc/)
 
 Postman collection: [docs/EmployeeManager API v1.postman_collection.json](docs/EmployeeManager_API_v1.postman_collection.json)
 
