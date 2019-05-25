@@ -78,11 +78,16 @@ The deployment process is automated by CircleCI whenever `master` or `develop` c
 ![ci_cd_pipeline](ci_cd_pipeline.png)
 
 ---
+**Examples:**
 
-Example CircleCI Workflow for a non-deploy-branch
+Workflow for a non-deploy-branch
 
-![non_deploy_branch_pipeline](non_deploy_branch_pipeline.png)
+![non_deploy_branch_workflow](non_deploy_branch_workflow.png)
 
-Example CircleCI Workflow for branch `develop`
+Workflow for `develop` branch
 
-![develop_pipeline](develop_pipeline.png)
+![develop_workflow](develop_workflow.png)
+
+Workflow for `master` branch
+
+![master_workflow](master_workflow.png)
