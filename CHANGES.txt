@@ -1,6 +1,13 @@
 Employee Manager Changelog
 ==========================
 
+Version 0.1.1
+-------------
+
+- Fix CI/CD workflow
+- Add Postman collection
+- Add Entity Relationship Diagram(ERD)
+
 Version 0.1.0
 -------------
 

@@ -13,18 +13,18 @@ Otherwise, if you have `Docker` and `Docker Compose` installed, you can jump dir
 ## Installation
 
 Clone the project and change directory
-```
+```console
 $ git clone https://github.com/brunobcardoso/employee-manager
 $ cd employee-manager
 ```
 
 #### With Docker:
-```
+```console
 $ make run
 ```
 
 #### Locally:
-```
+```console
 $ pip install pipenv
 $ cp .env.example .env
 $ pipenv install --dev --skip-lock
@@ -56,14 +56,19 @@ Create a superuser to manage the system:
 make superuser
 ```
 
-Access Admin panel at: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+Access Admin panel at: [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
 ## API Documentation
 
-Swagger UI: [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)
+Swagger UI: [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
 
-ReDoc: [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/)
+ReDoc: [http://localhost:8000/redoc/](http://localhost:8000/redoc/)
 
+Postman collection: [docs/EmployeeManager API v1.postman_collection.json](docs/EmployeeManager_API_v1.postman_collection.json)
+
+## Entity Relationship Diagram(ERD)
+
+![alt text](docs/core_erd.png)
 
 ## Deployment
 
@@ -75,14 +80,19 @@ The deployment process is automated by CircleCI whenever `master` or `develop` c
 
 ### Pipeline
 
-![ci_cd_pipeline](ci_cd_pipeline.png)
+![ci_cd_pipeline](docs/ci_cd_pipeline.png)
 
 ---
+**Examples:**
 
-Example CircleCI Workflow for a non-deploy-branch
+Workflow for a non-deploy-branch
 
-![non_deploy_branch_pipeline](non_deploy_branch_pipeline.png)
+![non_deploy_branch_workflow](docs/non_deploy_branch_workflow.png)
 
-Example CircleCI Workflow for branch `develop`
+Workflow for `develop` branch
 
-![develop_pipeline](develop_pipeline.png)
+![develop_workflow](docs/develop_workflow.png)
+
+Workflow for `master` branch
+
+![master_workflow](docs/master_workflow.png)
