@@ -1,6 +1,14 @@
 Employee Manager Changelog
 ==========================
 
+Version 0.1.2
+-------------
+
+- Update dependencies to solve security vulnerability with Django
+- Use Python 3.8.3
+- Update dev docker-compose to solve hostname error
+- Update urls using re_path() instead of url() to solve django deprecation warning
+
 Version 0.1.1
 -------------
 
