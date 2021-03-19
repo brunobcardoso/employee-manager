@@ -18,7 +18,7 @@ dj-static = "*"
 python-decouple = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
-djangorestframework = "==3.11.1"
+djangorestframework = "==3.11.2"
 djangorestframework-jwt = "*"
 drf-yasg = {extras = ["validation"],version = "*"}
 coreapi = "*"
